@@ -26,13 +26,13 @@ def main():
         next(csv_reader)
         count = 1
         for row in csv_reader:
-            path = row[0]
-            expected_hash = row[1]
-            actual_hash = hashlib.sha256(open(path,'rb').read()).hexdigest()
+            path = str(row[0])
+            expected_hash = str(row[1])
+            actual_hash = hashlib.sha256(open(path,'rb').read()).hexdigest().upper()
             if expected_hash == actual_hash:
-                print(path + ':' + "\u001b[33m[CLEAR]\u001b[0m" )
+                print(path + ':' + "\u001b[32m" + '[CLEAR]' + "\u001b[0m" )
             else: 
-                print(path + ":" + "\u001b[32m[BAD HASH]\u001b[0m" )
+                print(path + ":" + "\u001b[33m" + '[BAD HASH]' + "\u001b[0m" )
     print("\nDone.")
 
 
