@@ -1,0 +1,8 @@
+[Unit]
+Description=Verihash hash checking service
+
+[Service]
+Type=oneshot
+ExecStart= /usr/bin/python3 /usr/bin/verihash.py default.csv
+StandardOutput=append:/var/log/verihash.log
+StandardError=inherit
